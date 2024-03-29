@@ -1,2 +1,3 @@
-# console-app
-Windows用コンソールアプリケーション
+# console-app 
+Since: 20240329
+About: Windows用コンソールアプリケーション
