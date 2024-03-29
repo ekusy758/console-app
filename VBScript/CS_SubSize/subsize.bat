@@ -1,6 +1,6 @@
 @Echo Off
 Rem subsize.bat (Encode:S-JIS)
-Rem CS_SubSize.vbs ŒÄ‚Ño‚µƒoƒbƒ`
+Rem CS_SubSize.vbs 呼び出しバッチ
 
 Set BatDir=%~dp0
 Set Arg=%1
