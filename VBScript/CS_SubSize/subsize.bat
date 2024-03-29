@@ -1,5 +1,5 @@
 @Echo Off
-Rem subsize.bat (Encode:S-JIS)
+Rem subsize.bat (Encode:UTF-8)
 Rem CS_SubSize.vbs 呼び出しバッチ
 
 Set BatDir=%~dp0
