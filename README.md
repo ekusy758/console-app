@@ -1,3 +1,5 @@
-# console-app 
-Since: 20240329
-About: Windows用コンソールアプリケーション
+# 概要 
+Windows用コンソールアプリケーション
+
+## プログラムリスト
+・CS_Subsize  サブフォルダのサイズを取得するVBScriptです。
