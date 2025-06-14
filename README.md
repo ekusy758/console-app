@@ -1,5 +1,5 @@
-# 概要 
-Windows用コンソールアプリケーション
+# console-app
+Windows用コンソールアプリケーションを管理します。
 
-## プログラムリスト
-・CS_Subsize  サブフォルダのサイズを取得するVBScriptです。
+# ライセンス
+このプロジェクトは [MIT License](LICENSE) のもとで公開されています。
