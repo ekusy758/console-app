@@ -15,17 +15,18 @@ rem スクリプトフォルダへ移動
 set cur=%~dp0
 cd %cur%
 
-rem 実行時ログ出力設定 (mirlogs/YYMMDD_HHMMSS_mir.log)
+rem ログファイル設定 (mirlogs/YYMMDD_HHMMSS_mir.logに出力)
 set logdir="%cur%\mirlogs"
 if not exist "%logdir%" ( mkdir %logdir% )
 
-set datetime=%date:/=%_%time:~,8%
+set datetime=%date:/=%_%time:~0,8%
 set datetime=%datetime::=%
+set datetime=%datetime: =0% rem " "を"0"に変換する操作を追加
 set logfile=%logdir%\%datetime%_mir.log
 
 rem ミラーリング処理実行 (除外フォルダがあれば、/XDに指定)
 robocopy %src% %dst% /MIR /R:0 /W:0 /NP /TEE /XJD /XJF /DCOPY:DAT ^
-  /XD "" ^
+  /XD "AppData" ^
   /LOG+:%logfile%
 
 pause
