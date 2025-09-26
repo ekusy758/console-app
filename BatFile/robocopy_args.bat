@@ -1,30 +1,31 @@
 @echo off
 rem ---------------------------------------------------------------------------
-rem  [ƒ~ƒ‰[ƒŠƒ“ƒOˆ—ŽÀsƒoƒbƒ`] 
-rem  Žg‚¢•û: cmd‚Åˆø”‚ÉƒRƒs[Œ³AƒRƒs[æ‚ðŽw’è‚µŽÀs‚·‚é
-rem  ì¬“ú: 2025/08/26
+rem  [ãƒŸãƒ©ãƒ¼ãƒªãƒ³ã‚°å‡¦ç†å®Ÿè¡Œãƒãƒƒãƒ] 
+rem  ä½¿ã„æ–¹: cmdã§å¼•æ•°ã«ã‚³ãƒ”ãƒ¼å…ƒã€ã‚³ãƒ”ãƒ¼å…ˆã‚’æŒ‡å®šã—å®Ÿè¡Œã™ã‚‹
+rem  ä½œæˆæ—¥: 2025/08/26
 rem ---------------------------------------------------------------------------
 
-rem ƒRƒs[Œ³AƒRƒs[æ‚ðÝ’è
+rem ã‚³ãƒ”ãƒ¼å…ƒã€ã‚³ãƒ”ãƒ¼å…ˆã‚’è¨­å®š
 set src="%1"
 set dst="%2"
 if %src% == "" ( goto :ABEND )
 if %dst% == "" ( goto :ABEND )
 
-rem ƒXƒNƒŠƒvƒgƒtƒHƒ‹ƒ_‚ÖˆÚ“®
+rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚©ãƒ«ãƒ€ã¸ç§»å‹•
 set cur=%~dp0
 cd %cur%
 
-rem ƒƒOƒtƒ@ƒCƒ‹Ý’è (mirlogs/YYMMDD_HHMMSS_mir.log‚Éo—Í)
+rem ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«è¨­å®š (mirlogs/YYMMDD_HHMMSS_mir.logã«å‡ºåŠ›)
 set logdir="%cur%\mirlogs"
 if not exist "%logdir%" ( mkdir %logdir% )
 
+rem " "ã‚’"0"ã«å¤‰æ›ã™ã‚‹æ“ä½œã‚’è¿½åŠ 
 set datetime=%date:/=%_%time:~0,8%
 set datetime=%datetime::=%
-set datetime=%datetime: =0% rem " "‚ð"0"‚É•ÏŠ·‚·‚é‘€ì‚ð’Ç‰Á
+set datetime=%datetime: =0%
 set logfile=%logdir%\%datetime%_mir.log
 
-rem ƒ~ƒ‰[ƒŠƒ“ƒOˆ—ŽÀs (œŠOƒtƒHƒ‹ƒ_‚ª‚ ‚ê‚ÎA/XD‚ÉŽw’è)
+rem ãƒŸãƒ©ãƒ¼ãƒªãƒ³ã‚°å‡¦ç†å®Ÿè¡Œ (é™¤å¤–ãƒ•ã‚©ãƒ«ãƒ€ãŒã‚ã‚Œã°ã€/XDã«æŒ‡å®š)
 robocopy %src% %dst% /MIR /R:0 /W:0 /NP /TEE /XJD /XJF /DCOPY:DAT ^
   /XD "AppData" ^
   /LOG+:%logfile%
@@ -32,9 +33,9 @@ robocopy %src% %dst% /MIR /R:0 /W:0 /NP /TEE /XJD /XJF /DCOPY:DAT ^
 pause
 exit /b 0
 
-rem ƒGƒ‰[ˆ—’è‹`
+rem ã‚¨ãƒ©ãƒ¼å‡¦ç†å®šç¾©
 :ABEND
-  echo ƒGƒ‰[: ˆø”‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñB
-  echo ‘æ1ˆø”‚ÉƒRƒs[Œ³ƒtƒHƒ‹ƒ_‚ðŽw’è‚µ‚Ü‚·B’l: %src%
-  echo ‘æ2ˆø”‚ÉƒRƒs[æƒtƒHƒ‹ƒ_‚ðŽw’è‚µ‚Ü‚·B’l: %dst%
+  echo ã‚¨ãƒ©ãƒ¼: å¼•æ•°ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ã€‚
+  echo ç¬¬1å¼•æ•°ã«ã‚³ãƒ”ãƒ¼å…ƒãƒ•ã‚©ãƒ«ãƒ€ã‚’æŒ‡å®šã—ã¾ã™ã€‚å€¤: %src%
+  echo ç¬¬2å¼•æ•°ã«ã‚³ãƒ”ãƒ¼å…ˆãƒ•ã‚©ãƒ«ãƒ€ã‚’æŒ‡å®šã—ã¾ã™ã€‚å€¤: %dst%
   exit /b -1
